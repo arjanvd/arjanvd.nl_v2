@@ -1,0 +1,40 @@
+/**
+
+  @video
+--------------------------------------------------------
+  modules/_video-embeds.scss
+--------------------------------------------------------
+
+  Video Embeds
+
+-----------------------------------------------------  */
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16/9 ratio */
+  height: 0;
+  margin-bottom: vr(4);
+  overflow: hidden;
+  
+  & iframe, & object, & embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &--strava {
+    @extend .embed-container;
+    padding-bottom: 68.644068%;
+    
+    & iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    } 
+  }
+}

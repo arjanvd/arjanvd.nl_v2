@@ -1,0 +1,163 @@
+/* ----------------------------------------------------------------------------
+
+WRAPPER
+
+===============================================================================
+02_layout/_block.scss
+-------------------------------------------------------------------------------
+
+Styles of blocks -- descendants of wrappers only meant for positioning
+
+---------------------------------------------------------------------------- */
+
+.l-block {
+  
+  &--index {
+    
+    &__item {
+      margin-bottom: vr(8);
+    }
+  }
+
+  &--content {
+    margin-left: vr(3);
+    margin-right: vr(3);
+
+    @include bp(x-small) {
+      margin-left: vr(3);
+      margin-right: vr(6);
+    }
+
+    @include bp(small) {
+      margin-left: vr(8);
+      margin-right: vr(12);
+    }
+
+    @include bp(medium) {
+      margin-left: 0;
+      margin-right: vr(16);
+    }
+
+    @include bp(large) {
+      margin-right: vr(24);
+    }
+
+    @include bp(x-large) {
+      margin-right: vr(40);
+    }
+
+    blockquote, pre, table {
+      margin-left: -#{vr(3)};
+      margin-right: -#{vr(3)};
+
+      @include bp(x-small) {
+        margin-right: -#{vr(6)};
+      }
+
+      @include bp(small) {
+        margin-left: -#{vr(8)};
+        margin-right: -#{vr(12)};
+      }
+
+      @include bp(medium) {
+        margin-left: -#{vr(5)};
+        margin-right: -#{vr(16)};
+      }
+
+      @include bp(large) {
+        margin-right: -#{vr(24)};
+      }
+
+      @include bp(x-large) {
+        margin-right: -#{vr(40)};
+      }
+    }
+
+    figure, .img--landscape {
+      margin-left: -#{vr(3)};
+      margin-right: -#{vr(3)};
+      width: calc(100% + #{vr(6)});
+
+      @include bp(x-small) {
+        margin-right: -#{vr(6)};
+        width: calc(100% + #{vr(9)});
+      }
+
+      @include bp(small) {
+        margin-left: -#{vr(8)};
+        margin-right: -#{vr(12)};
+        width: calc(100% + #{vr(20)});
+      }
+
+      @include bp(medium) {
+        margin-left: 0;
+        margin-right: -#{vr(16)};
+        width: calc(100% + #{vr(16)});
+      }
+
+      @include bp(large) {
+        margin-right: -#{vr(24)};
+        width: calc(100% + #{vr(24)});
+      }
+
+      @include bp(x-large) {
+        margin-right: -#{vr(40)};
+        width: calc(100% + #{vr(40)});
+      }
+    }
+    
+    .img--portrait {
+      margin-left: -#{vr(3)};
+      margin-right: -#{vr(3)};
+      width: calc(100% + #{vr(6)});
+
+      @include bp(x-small) {
+        margin-right: -#{vr(6)};
+        width: calc(100% + #{vr(9)});
+      }
+
+      @include bp(small) {
+        margin-left: -#{vr(8)};
+        margin-right: -#{vr(12)};
+        width: calc(100% + #{vr(20)});
+      }
+      
+      @include bp(medium) {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+  }
+  
+  &--footer {
+  
+    &--about {
+      margin-bottom: vr(3);
+      
+      @include bp(x-small) {
+        @include span(7 of 12);
+      }
+      
+      @include bp(small) {
+        @include span(8 of 12);
+      }
+    }
+    &--web {
+      margin-bottom: vr(3);
+      
+      @include bp(x-small) {
+        @include span(5 of 12 last);
+      }
+      
+      @include bp(small) {
+        @include span(4 at 9 of 12 last);
+      }
+    }
+    &--copy {
+      @include span(12 of 12 last);
+      margin-bottom: vr(2);
+    }
+  }
+  
+}

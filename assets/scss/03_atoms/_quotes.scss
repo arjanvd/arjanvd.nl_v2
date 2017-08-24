@@ -1,0 +1,53 @@
+/* ----------------------------------------------------------------------------
+
+QUOTES
+
+===============================================================================
+03_atoms/_quotes.scss
+-------------------------------------------------------------------------------
+
+Basic styles to blockquotes and pullquotes
+
+---------------------------------------------------------------------------- */
+
+blockquote {
+  // margin-left and margin-right are defined in 02_layout/_block.scss in .l-block--content blockquote 
+  margin-top: vr(4);
+  margin-bottom: vr(4);
+  padding-top: vr(4);
+  padding-bottom: vr(4);
+  padding-left: vr(2);
+  padding-right: vr(3);
+  border-left: vr(1) solid $grey60;
+  font-family: $font-sans;
+  background-color: $grey20;
+  
+  @include bp(x-small) {
+    padding-right: vr(6);
+  }
+  
+  @include bp(small) { 
+    padding-left: vr(7);
+    padding-right: vr(12);
+  }
+  
+  @include bp(medium) {
+    padding-left: vr(4);
+    padding-right: vr(16);
+  }
+  
+  @include bp(large) {
+    padding-right: vr(24);
+  }  
+  
+  @include bp(x-large) {
+    padding-right: vr(40);
+  }
+  
+  cite {
+    &:before {
+      content: " – ";
+    }
+  }
+
+}

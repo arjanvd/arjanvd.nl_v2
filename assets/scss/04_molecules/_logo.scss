@@ -1,0 +1,7 @@
+.m-logo {
+  margin-right: auto;
+  
+  @include bp(medium) {
+    text-align: right;
+  }
+}

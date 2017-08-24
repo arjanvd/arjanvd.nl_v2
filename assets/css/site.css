@@ -1,0 +1,1011 @@
+@charset "UTF-8";
+/* --------------------------------------------------------
+
+MAIN STYLESHEET for arjanvd.me
+
+-----------------------------------------------------------
+
+TABLE OF CONTENTS
+@toc
+
+- 01_base .... reset, mixins, functions, vars, vendors
+- Elements .... single elements
+- Layout .... layout objects like grids, containers
+- Components .... objects created by combining elements
+
+-------------------------------------------------------- */
+/*  -------------------------------------------------------
+    @01_base
+-------------------------------------------------------- */
+/*
+
+a {
+    color: color(purple);
+    &:hover {
+        color: color(purple, light);
+    }
+}
+
+*/
+/* ----------------------------------------------------------------------------
+
+TYPE ON A MODULAR SCALE
+
+===============================================================================
+
+A Sass toolkit that sets type in rem's, based on a modular scale while 
+maintaining vertical rhythm. And as a small bonus pixel borders that maintain 
+rhythm.
+
+Release Versions: https://github.com/arjanvd/XXXX
+Github: https://github.com/arjanvd/XXXXX
+License: The MIT License (MIT)
+
+Heavily inspired by and used stuff from:
+https://github.com/ianrose/typesettings
+alwaystwisted     XXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+Modular scale 
+===============================================================================
+
+Sass map
+modularscale.com
+
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+Configurable variables
+===============================================================================
+
+The config variables have default values that that you can adjust at will. 
+Use this variables to customize your settings. But be careful: with great 
+powers comes great responsibility.
+
+---------------------------------------------------------------------------- */
+/* ----
+Choose a key from $ms-ratio-map above. Check modularscale.com to make an 
+educated choice. 
+---- */
+/* ----
+Set the font-size to a value in rem's. It's advised to leave this at 1rem, 
+while setting a percentage font-size on your html tag (i.e. html { font-size: 
+100%; }). When you need a larger base font-size at higher media queries, only 
+adjust the font-size on the html-tag (i.e. @media (min-width: 600px) { html { 
+font-size: 120%; } }).
+---- */
+/* ----
+Set the line-height which serves as the base for the vertical rhythm.
+---- */
+/* ----
+Sometimes you need more granular control of the distance between elements than 
+a full $base-line-height. This variable defines that amount of granular 
+control.
+---- */
+/* ----------------------------------------------------------------------------
+Helper variable
+===============================================================================
+
+The vertical grid unit, set in rem's like font-size. This is the value that 
+determines the baseline for our vertical rhythm. Line-height, margin, and 
+padding are set to multiples of this value. 
+[Note] Do not touch this variable. Just admire its beauty from a distance.
+
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+Modular scale calculations
+===============================================================================
+
+Based on the configurable variables $base-font-size and $ms-ratio the modular 
+scale is calculated, both up and down. Each step down divides the previous step 
+with $ms-ratio (i.e. $ms-down2 = $ms-down1 / $ms-ratio). Each step up multi-
+plies the previous step with $ms-ratio (i.e. $ms-up2 = $ms-up1 * $ms-ratio). 
+[Note] This one already goes up to eleven, but if you need more size up then 
+add more sizes. And no, it doesn't go down to eleven. That would be ridiculous.
+
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+Mixins and function
+===============================================================================
+
+The mixins and function that make sure that vertical rhythm is maintained. This 
+is where the real magic happens.
+
+---------------------------------------------------------------------------- */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.5; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* --------------------------------------------------------
+
+UNIVERSAL 
+
+===========================================================
+01_base/_universal.scss
+-----------------------------------------------------------
+
+Universal styles for box-sizing and fonts
+
+-------------------------------------------------------- */
+* {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+html {
+  font-size: 87.5%;
+  font-family: "Lora", Georgia, "Times New Roman", serif; }
+  @media (min-width: 480px) {
+    html {
+      font-size: 100%; } }
+  @media (min-width: 768px) {
+    html {
+      font-size: calc(100% + 6 * (100vw - 768px) / 672); } }
+
+* {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+scss */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: "PT Mono", "Ubuntu Mono", Monaco, monospace;
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #222;
+  text-shadow: 0 1px white;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 4;
+  hyphens: none; }
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc; }
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none; } }
+/* Code blocks 
+pre[class*="language-"] {
+  padding: vr(2);
+  margin-bottom: vr(4);
+  overflow: auto;
+} */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f5f2f0; }
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray; }
+
+.token.punctuation {
+  color: #999; }
+
+.namespace {
+  opacity: .7; }
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905; }
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690; }
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5); }
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a; }
+
+.token.function {
+  color: #DD4A68; }
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90; }
+
+.token.important,
+.token.bold {
+  font-weight: bold; }
+
+.token.italic {
+  font-style: italic; }
+
+.token.entity {
+  cursor: help; }
+
+/*  -------------------------------------------------------
+    @layout
+-------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+
+LAYOUT
+
+===============================================================================
+02_layout/_layout.scss
+-------------------------------------------------------------------------------
+
+A portion of CSS is structural layout.
+
+This file is imported in site.scss, so all files in the 02_layout folder are 
+imported. WARNING: do not import files in the 02_layout folder directly into 
+site.scss
+
+---------------------------------------------------------------------------- */
+.l-wrapper, .post, .landscape, .portrait {
+  display: grid;
+  max-width: 1440px;
+  grid-template-columns: 4% 1fr 4%;
+  grid-column-start: 1;
+  grid-column-end: 4; }
+
+.post > *:not(.landscape):not(.portrait),
+figcaption {
+  grid-column-start: 2;
+  grid-column-end: 3; }
+
+/*  -------------------------------------------------------
+    @atoms
+-------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+
+ATOMS
+
+===============================================================================
+03_atoms/_atoms.scss
+-------------------------------------------------------------------------------
+
+From http://atomicdesign.bradfrost.com/chapter-2/:
+
+  Atoms of our interfaces serve as the foundational building blocks that 
+  comprise all our user interfaces. Therefore these atoms would include basic 
+  HTML tags like form labels, inputs, buttons, and other elements that can’t be 
+  broken down any further without ceasing to be functional.
+
+This file is imported in site.scss, so all files in the 03_atoms folder are 
+imported. WARNING: do not import files in the 03_atoms folder directly into 
+site.scss
+
+---------------------------------------------------------------------------- */
+/*@import "body";
+@import "headings";
+@import "text";
+@import "links";
+@import "code";
+@import "lists";
+@import "quotes";*/
+/**
+
+  @images
+---------------------------------------------------------
+  elements/_images.scss
+--------------------------------------------------------
+
+  Base styling for images, plus some helpful utility
+  classes that modify images.
+
+  Note: You won't add any styling to these image classes,
+  these are just utility classes
+
+--------------------------------------------------------- */
+/* @images
+--------------------------------------------------------
+
+  Base Image Style is 100% width by default
+
+  Example: Image
+  <img src="http://fillmurray.com/600/300">
+
+------------------------------------------------------ */
+.portrait, .landscape {
+  width: 1000px;
+  max-width: 100%;
+  vertical-align: middle;
+  margin-bottom: 1.5rem; }
+  .portrait + figcaption, .landscape + figcaption {
+    margin-bottom: 0; }
+
+/*  -------------------------------------------------------
+    @molecules
+-------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+
+MOLECULES
+
+===============================================================================
+04_molecules/_molecules.scss
+-------------------------------------------------------------------------------
+
+From: http://atomicdesign.bradfrost.com/chapter-2/
+
+  In interfaces, molecules are relatively simple groups of UI elements 
+  functioning together as a unit. For example, a form label, search input, and 
+  button can combine them together to create a search form molecule.
+
+This file is imported in site.scss, so all files in the 04_molecules folder are 
+imported. WARNING: do not import files in the 04_molecules folder directly into 
+site.scss
+
+---------------------------------------------------------------------------- */
+.m-logo {
+  margin-right: auto; }
+  @media (min-width: 768px) {
+    .m-logo {
+      text-align: right; } }
+
+.m-nav__list {
+  display: block;
+  text-align: right;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase; }
+  @media (max-width: 767px) {
+    .m-nav__list {
+      position: fixed;
+      text-align: center;
+      overflow: hidden;
+      z-index: -1;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease-in-out; } }
+
+@media (max-width: 767px) {
+  .m-nav__list ul {
+    position: relative;
+    top: 10vh;
+    transform: scale(2);
+    transition: all 0.3s ease-in-out; } }
+
+@media (max-width: 767px) {
+  .m-nav__list li {
+    display: block; } }
+
+.m-nav__list li a {
+  text-decoration: none;
+  color: #888888;
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 1rem;
+  line-height: 2.25; }
+  .m-nav__list li a.nav-link--articles:hover {
+    color: #188AAF; }
+  .m-nav__list li a.nav-link--articles.active {
+    color: #188AAF; }
+    .m-nav__list li a.nav-link--articles.active:before {
+      content: '✎';
+      margin-right: 0.75rem; }
+  .m-nav__list li a.nav-link--photos:hover {
+    color: #89D813; }
+  .m-nav__list li a.nav-link--photos.active {
+    color: #89D813; }
+    .m-nav__list li a.nav-link--photos.active:before {
+      content: '⧈';
+      margin-right: 0.75rem; }
+  .m-nav__list li a.nav-link--code:hover {
+    color: #F9D33B;
+    text-shadow: 0 0 1px #eeeeee; }
+  .m-nav__list li a.nav-link--code.active {
+    color: #F9D33B;
+    text-shadow: 0 0 1px #eeeeee; }
+    .m-nav__list li a.nav-link--code.active:before {
+      content: '⚒';
+      margin-right: 0.75rem; }
+  .m-nav__list li a.nav-link--sport:hover {
+    color: #F9880E; }
+  .m-nav__list li a.nav-link--sport.active {
+    color: #F9880E; }
+    .m-nav__list li a.nav-link--sport.active:before {
+      content: '⦿';
+      margin-right: 0.75rem; }
+  .m-nav__list li a.nav-link--links:hover {
+    color: #F02311; }
+  .m-nav__list li a.nav-link--links.active {
+    color: #F02311; }
+    .m-nav__list li a.nav-link--links.active:before {
+      content: '☍';
+      margin-right: 0.75rem; }
+  @media (max-width: 767px) {
+    .m-nav__list li a {
+      display: block;
+      font-size: 2rem;
+      line-height: calc(80vh/5);
+      color: #fff;
+      opacity: 0.8;
+      transition: all 0.2s ease-in-out; }
+      .m-nav__list li a.nav-link--articles {
+        background-color: #188AAF; }
+        .m-nav__list li a.nav-link--articles:hover {
+          color: #fff;
+          box-shadow: inset 0px 0px 20px 0px #1b708c;
+          text-shadow: none; }
+        .m-nav__list li a.nav-link--articles.active {
+          color: #fff; }
+          .m-nav__list li a.nav-link--articles.active:before {
+            content: '';
+            margin-right: 0; }
+      .m-nav__list li a.nav-link--photos {
+        background-color: #89D813; }
+        .m-nav__list li a.nav-link--photos:hover {
+          color: #fff;
+          box-shadow: inset 0px 0px 20px 0px #6fab17;
+          text-shadow: none; }
+        .m-nav__list li a.nav-link--photos.active {
+          color: #fff; }
+          .m-nav__list li a.nav-link--photos.active:before {
+            content: '';
+            margin-right: 0; }
+      .m-nav__list li a.nav-link--code {
+        background-color: #F9D33B; }
+        .m-nav__list li a.nav-link--code:hover {
+          color: #fff;
+          box-shadow: inset 0px 0px 20px 0px #c3a735;
+          text-shadow: none; }
+        .m-nav__list li a.nav-link--code.active {
+          color: #fff; }
+          .m-nav__list li a.nav-link--code.active:before {
+            content: '';
+            margin-right: 0; }
+      .m-nav__list li a.nav-link--sport {
+        background-color: #F9880E; }
+        .m-nav__list li a.nav-link--sport:hover {
+          color: #fff;
+          box-shadow: inset 0px 0px 20px 0px #c36f13;
+          text-shadow: none; }
+        .m-nav__list li a.nav-link--sport.active {
+          color: #fff; }
+          .m-nav__list li a.nav-link--sport.active:before {
+            content: '';
+            margin-right: 0; }
+      .m-nav__list li a.nav-link--links {
+        background-color: #F02311; }
+        .m-nav__list li a.nav-link--links:hover {
+          color: #fff;
+          box-shadow: inset 0px 0px 20px 0px #bd2315;
+          text-shadow: none; }
+        .m-nav__list li a.nav-link--links.active {
+          color: #fff; }
+          .m-nav__list li a.nav-link--links.active:before {
+            content: '';
+            margin-right: 0; } }
+
+#toggle-nav-label {
+  display: none; }
+  @media (max-width: 767px) {
+    #toggle-nav-label {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      z-index: 500; }
+      #toggle-nav-label span {
+        color: #555555;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        margin-right: 0.75rem; } }
+
+#toggle-nav {
+  display: none; }
+
+#toggle-nav:checked ~ .m-nav__list {
+  opacity: 1;
+  z-index: 400; }
+
+#toggle-nav:checked ~ .m-nav__list ul {
+  transform: scale(1); }
+
+#toggle-nav:checked ~ #toggle-nav-label {
+  color: rgba(0, 0, 0, 0.8); }
+
+/* https://codepen.io/designcouch/pen/Atyop */
+.m-nav__icon {
+  width: 2rem;
+  height: 1.5rem;
+  display: inline-block;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  vertical-align: middle; }
+
+.m-nav__icon span {
+  display: block;
+  position: absolute;
+  height: calc(1.5rem/5);
+  width: 100%;
+  background: #888888;
+  border-radius: calc(1.5rem/5);
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out; }
+
+.m-nav__icon span:nth-child(1) {
+  top: 0; }
+
+.m-nav__icon span:nth-child(2),
+.m-nav__icon span:nth-child(3) {
+  top: calc((1.5rem/5)*2); }
+
+.m-nav__icon span:nth-child(4) {
+  top: calc((1.5rem/5)*4); }
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(1) {
+  top: calc((1.5rem/5)*2);
+  width: 0%;
+  left: 50%;
+  background: #fff; }
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(2) {
+  transform: rotate(45deg);
+  background: #fff; }
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(3) {
+  transform: rotate(-45deg);
+  background: #fff; }
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(4) {
+  top: calc((1.5rem/5)*2);
+  width: 0%;
+  left: 50%;
+  background: #fff; }
+
+.m-gallery--index {
+  margin-bottom: 0.75rem; }
+.m-gallery__item {
+  width: 50%;
+  float: left; }
+  .m-gallery__item:nth-child(2n + 1) {
+    margin-left: 0;
+    margin-right: -100%;
+    clear: both;
+    margin-left: 0; }
+  .m-gallery__item:nth-child(2n + 2) {
+    margin-left: 50%;
+    margin-right: -100%;
+    clear: none; }
+  @media (min-width: 480px) {
+    .m-gallery__item {
+      width: 50%;
+      float: left; }
+      .m-gallery__item:nth-child(2n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery__item:nth-child(2n + 2) {
+        margin-left: 50%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 640px) {
+    .m-gallery__item {
+      width: 25%;
+      float: left; }
+      .m-gallery__item:nth-child(4n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery__item:nth-child(4n + 2) {
+        margin-left: 25%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery__item:nth-child(4n + 3) {
+        margin-left: 50%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery__item:nth-child(4n + 4) {
+        margin-left: 75%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 768px) {
+    .m-gallery__item {
+      width: 50%;
+      float: left; }
+      .m-gallery__item:nth-child(2n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery__item:nth-child(2n + 2) {
+        margin-left: 50%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 996px) {
+    .m-gallery__item {
+      width: 25%;
+      float: left; }
+      .m-gallery__item:nth-child(4n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery__item:nth-child(4n + 2) {
+        margin-left: 25%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery__item:nth-child(4n + 3) {
+        margin-left: 50%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery__item:nth-child(4n + 4) {
+        margin-left: 75%;
+        margin-right: -100%;
+        clear: none; } }
+
+.m-gallery--alt {
+  margin-bottom: 1.5rem; }
+  .m-gallery--alt__item-1 {
+    width: 100%;
+    float: left; }
+    .m-gallery--alt__item-1:nth-child(1n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: none; }
+  .m-gallery--alt__item-2 {
+    width: 50%;
+    float: left; }
+    .m-gallery--alt__item-2:nth-child(2n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: both;
+      margin-left: 0; }
+    .m-gallery--alt__item-2:nth-child(2n + 2) {
+      margin-left: 50%;
+      margin-right: -100%;
+      clear: none; }
+  .m-gallery--alt__item-3 {
+    width: 33.3333333333%;
+    float: left; }
+    .m-gallery--alt__item-3:nth-child(3n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: both;
+      margin-left: 0; }
+    .m-gallery--alt__item-3:nth-child(3n + 2) {
+      margin-left: 33.3333333333%;
+      margin-right: -100%;
+      clear: none; }
+    .m-gallery--alt__item-3:nth-child(3n + 3) {
+      margin-left: 66.6666666667%;
+      margin-right: -100%;
+      clear: none; }
+  .m-gallery--alt__item-4 {
+    width: 25%;
+    float: left; }
+    .m-gallery--alt__item-4:nth-child(4n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: both;
+      margin-left: 0; }
+    .m-gallery--alt__item-4:nth-child(4n + 2) {
+      margin-left: 25%;
+      margin-right: -100%;
+      clear: none; }
+    .m-gallery--alt__item-4:nth-child(4n + 3) {
+      margin-left: 50%;
+      margin-right: -100%;
+      clear: none; }
+    .m-gallery--alt__item-4:nth-child(4n + 4) {
+      margin-left: 75%;
+      margin-right: -100%;
+      clear: none; }
+
+.m-article-articles__number {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #bbbbbb; }
+.m-article-articles__item {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #6f6f6f;
+  margin-bottom: 0.375rem; }
+.m-article-links {
+  margin-bottom: 1.5rem; }
+  .m-article-links__header {
+    margin-bottom: 0.375rem;
+    color: #888888; }
+
+/**
+
+  @video
+--------------------------------------------------------
+  modules/_video-embeds.scss
+--------------------------------------------------------
+
+  Video Embeds
+
+-----------------------------------------------------  */
+.embed-container, .embed-container--strava {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16/9 ratio */
+  height: 0;
+  margin-bottom: 1.5rem;
+  overflow: hidden; }
+  .embed-container iframe, .embed-container--strava iframe, .embed-container object, .embed-container--strava object, .embed-container embed, .embed-container--strava embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .embed-container--strava {
+    padding-bottom: 68.644068%; }
+    .embed-container--strava iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+
+.m-navigation {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem; }
+
+.navigation__left {
+  margin-right: 1.5rem; }
+
+.navigation__right {
+  margin-left: 1.5rem; }
+
+/*  -------------------------------------------------------
+    @organisms
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+
+ORGANISMS
+
+===========================================================
+05_organisms/_organisms.scss
+-----------------------------------------------------------
+
+From http://atomicdesign.bradfrost.com/chapter-2/:
+
+  Organisms are relatively complex UI components composed 
+  of groups of molecules and/or atoms and/or other 
+  organisms. These organisms form distinct sections of an 
+  interface.
+
+This file is imported in site.scss, so all files in the 
+05_organisms folder are imported. WARNING: do not import 
+files in the 05_organisms folder directly into site.scss
+
+-------------------------------------------------------- */
+/*@import "header";
+@import "content";
+@import "footer";*/
+/* --------------------------------------------------------------
+
+ Hartija Css Print  Framework
+   * Version:   1.0
+
+-------------------------------------------------------------- */
+@media print {
+  body {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.45;
+    font-family: Garamond,"Times New Roman", serif;
+    color: #000;
+    background: none;
+    font-size: 14pt; }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid; }
+
+  h1 {
+    font-size: 19pt; }
+
+  h2 {
+    font-size: 17pt; }
+
+  h3 {
+    font-size: 15pt; }
+
+  h4, h5, h6 {
+    font-size: 14pt; }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+
+  code {
+    font: 12pt Courier, monospace; }
+
+  blockquote {
+    margin: 1.2em;
+    padding: 1em;
+    font-size: 12pt; }
+
+  hr {
+    background-color: #ccc; }
+
+  /* Images */
+  img {
+    float: left;
+    margin: 1em 1.5em 1.5em 0;
+    max-width: 100% !important; }
+
+  a img {
+    border: none; }
+
+  /* Links */
+  a:link, a:visited {
+    background: transparent;
+    font-weight: 700;
+    text-decoration: underline;
+    color: #333; }
+
+  a:link[href^="http://"]:after, a[href^="http://"]:visited:after {
+    content: " (" attr(href) ") ";
+    font-size: 90%; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  /* Don't show linked images  */
+  a[href^="http://"] {
+    color: #000; }
+
+  a[href$=".jpg"]:after, a[href$=".jpeg"]:after, a[href$=".gif"]:after, a[href$=".png"]:after {
+    content: " (" attr(href) ") ";
+    display: none; }
+
+  /* Don't show links that are fragment identifiers, or use the `javascript:` pseudo protocol .. taken from html5boilerplate */
+  a[href^="#"]:after, a[href^="javascript:"]:after {
+    content: ""; }
+
+  /* Table */
+  table {
+    margin: 1px;
+    text-align: left; }
+
+  th {
+    border-bottom: 1px solid #333;
+    font-weight: bold; }
+
+  td {
+    border-bottom: 1px solid #333; }
+
+  th, td {
+    padding: 4px 10px 4px 0; }
+
+  tfoot {
+    font-style: italic; }
+
+  caption {
+    background: #fff;
+    margin-bottom: 2em;
+    text-align: left; }
+
+  thead {
+    display: table-header-group; }
+
+  img, tr {
+    page-break-inside: avoid; }
+
+  /* Hide various parts from the site
+  #header, #footer, #navigation, #rightSideBar, #leftSideBar
+  {display:none;}
+  */ }

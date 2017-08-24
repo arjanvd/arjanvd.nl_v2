@@ -1,0 +1,136 @@
+/* ----------------------------------------------------------------------------
+
+TEXT
+
+===============================================================================
+03_atoms/_text.scss
+-------------------------------------------------------------------------------
+
+Basic styles to block text elments (i.e. <p>) and inline text elements (such as
+<strong>). Also, special elements specific to the design.
+
+---------------------------------------------------------------------------- */
+
+
+/* @ block elements @ ---------------------------------------------------------
+---------------------------------------------------------------------------- */
+
+p {
+  margin-bottom: vr(4);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &.year {
+    @include set-type($ms-up2);
+    color: $grey90;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: vr(4);
+    
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  
+}
+
+
+
+/* @ inline elements @ --------------------------------------------------------
+---------------------------------------------------------------------------- */
+ 
+strong {
+  // NOTE: use bold font-face if available instead of 'font-weight: bold'
+  font-weight: bold;
+}
+
+em {
+  // NOTE: use italic font-face if available instead of 'font-style: italic'
+  font-style: italic;
+}
+
+small,
+.small {
+  @include set-type($ms-down1, 3);
+}
+
+time,
+.time {
+  text-transform: uppercase;
+}
+
+abbr {
+  font-variant: small-caps; 
+  font-weight: 600;
+  text-transform: lowercase;
+  
+  &[title]:hover {
+    // Cursor changed to a question mark when it has a title
+    cursor: help;
+  }
+}
+
+
+/* @ special elements @ -------------------------------------------------------
+---------------------------------------------------------------------------- */
+
+.article {
+  &-link {
+    font-weight: 700;
+    @include set-type($ms-base, 3);
+  }
+  &-type {
+    font-family: $font-sans;
+    font-weight: 900;
+    color: $grey90;
+    @include set-type($ms-down2, 3);
+    text-transform: uppercase;
+    border: 1px solid $grey40;
+    padding: 2px;
+    vertical-align: middle;
+  }
+  &-meta {
+    font-family: $font-sans;
+    @include set-type($ms-down1, 3);
+    color: $grey80;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    &--header {
+      @extend .article-meta;
+      margin-bottom: vr(4);
+    }
+  }
+  &-body p:first-child {
+    font-style: italic;
+  }
+}
+
+.dot {
+  
+  &--home {
+    color: $color-home;
+  }
+  
+  &--articles {
+    color: $color-articles;
+  }
+
+  &--photos {
+    color: $color-photos;
+  }
+
+  &--code {
+    color: $color-code;
+  }
+
+  &--sport {
+    color: $color-sport;
+  }
+  
+  &--links {
+    color: $color-links;
+  }
+}
+

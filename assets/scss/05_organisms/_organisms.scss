@@ -1,0 +1,24 @@
+/* --------------------------------------------------------
+
+ORGANISMS
+
+===========================================================
+05_organisms/_organisms.scss
+-----------------------------------------------------------
+
+From http://atomicdesign.bradfrost.com/chapter-2/:
+
+  Organisms are relatively complex UI components composed 
+  of groups of molecules and/or atoms and/or other 
+  organisms. These organisms form distinct sections of an 
+  interface.
+
+This file is imported in site.scss, so all files in the 
+05_organisms folder are imported. WARNING: do not import 
+files in the 05_organisms folder directly into site.scss
+
+-------------------------------------------------------- */
+
+/*@import "header";
+@import "content";
+@import "footer";*/

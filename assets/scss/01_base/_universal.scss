@@ -1,0 +1,62 @@
+/* --------------------------------------------------------
+
+UNIVERSAL 
+
+===========================================================
+01_base/_universal.scss
+-----------------------------------------------------------
+
+Universal styles for box-sizing and fonts
+
+-------------------------------------------------------- */
+
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+
+* {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// From: http://zellwk.com/blog/viewport-based-typography/
+//
+// Setting viewport based typography, starting at 16px until
+// bp(medium) (=768px) and then it grows 1px every 112px 
+// (bp(xx-large) - bp(medium) = 1440 - 768 = 672) / 
+// (max-fontsize - font-size = 22 - 16 = 6) = 112px
+
+html {
+  // Setting the basic font-size
+  font-size: 87.5%;
+  // Setting the basic font-family
+  font-family: $font-serif;
+  @include bp(x-small) {
+    // Enlarge font-size at the first breakpoint
+    font-size: 100%;
+  }
+  // Scales by 1px for every 112px from 768px (16px) onwards till
+  // 1440px (22px)
+  @include bp(medium) {
+    font-size: calc(100% + 6 * (100vw - 768px) / 672)
+  } 
+}
+
+// From: https://github.com/crushlovely/skyline
+
+* {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// For faster fontloading: https://www.filamentgroup.com/lab/font-events.html
+
+// clearfix hack
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

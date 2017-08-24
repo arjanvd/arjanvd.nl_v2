@@ -1,0 +1,15 @@
+
+
+.l-wrapper, .post, .landscape, .portrait {
+  display: grid;
+  max-width: 1440px;
+  grid-template-columns: 4% 1fr 4%;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.post > *:not(.landscape):not(.portrait),
+figcaption {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}

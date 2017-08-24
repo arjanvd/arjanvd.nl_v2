@@ -1,0 +1,111 @@
+$black: #222;
+$white: #fff;
+
+// Colour pallette: http://www.colourlovers.com/palette/1919224/Window_dressing?sAC=1
+
+$red: #F02311;
+$green: #89D813;
+$blue: #188AAF;
+$orange: #F9880E;
+$yellow: #F9D33B; 
+
+$grey97: lighten($black, 3%);
+$grey90: lighten($black, 10%);
+$grey80: lighten($black, 20%);
+$grey70: lighten($black, 30%);
+$grey60: lighten($black, 40%);
+$grey50: lighten($black, 50%);
+$grey40: lighten($black, 60%);
+$grey30: lighten($black, 70%);
+$grey20: lighten($black, 80%);
+$grey10: lighten($black, 90%);
+
+$color-home: $grey60;
+$color-articles: $blue;
+$color-photos: $green;
+$color-code: $yellow;
+$color-sport: $orange;
+$color-links: $red;
+
+$color-map: (
+    color-home: (
+      base: $color-home,
+      light: mix($white, $color-home, 97%),
+      l25: mix($white, $color-home, 75%),
+      l50: mix($white, $color-home, 50%),
+      l75: mix($white, $color-home, 25%),
+      d25: mix($black, $color-home, 75%),
+      d50: mix($black, $color-home, 50%),
+      d75: mix($black, $color-home, 25%),
+    ),
+    color-articles: (
+      base: $color-articles,
+      light: mix($white, $color-articles, 97%),
+      l25: mix($white, $color-articles, 75%),
+      l50: mix($white, $color-articles, 50%),
+      l75: mix($white, $color-articles, 25%),
+      d25: mix($black, $color-articles, 75%),
+      d50: mix($black, $color-articles, 50%),
+      d75: mix($black, $color-articles, 25%),
+    ),
+    color-photos: (
+      base: $color-photos,
+      light: mix($white, $color-photos, 99%),
+      l25: mix($white, $color-photos, 75%),
+      l50: mix($white, $color-photos, 50%),
+      l75: mix($white, $color-photos, 25%),
+      d25: mix($black, $color-photos, 75%),
+      d50: mix($black, $color-photos, 50%),
+      d75: mix($black, $color-photos, 25%),
+    ),
+    color-code: (
+      base: $color-code,
+      light: mix($white, $color-code, 97%),
+      l25: mix($white, $color-code, 75%),
+      l50: mix($white, $color-code, 50%),
+      l75: mix($white, $color-code, 25%),
+      d25: mix($black, $color-code, 75%),
+      d50: mix($black, $color-code, 50%),
+      d75: mix($black, $color-code, 25%),
+    ),
+    color-sport: (
+      base: $color-sport,
+      light: mix($white, $color-sport, 97%),
+      l25: mix($white, $color-sport, 75%),
+      l50: mix($white, $color-sport, 50%),
+      l75: mix($white, $color-sport, 25%),
+      d25: mix($black, $color-sport, 75%),
+      d50: mix($black, $color-sport, 50%),
+      d75: mix($black, $color-sport, 25%),
+    ),
+    color-links: (
+      base: $color-links,
+      light: mix($white, $color-links, 99%),
+      l25: mix($white, $color-links, 75%),
+      l50: mix($white, $color-links, 50%),
+      l75: mix($white, $color-links, 25%),
+      d25: mix($black, $color-links, 75%),
+      d50: mix($black, $color-links, 50%),
+      d75: mix($black, $color-links, 25%),
+    ),
+);
+
+@function color($color, $tone: base) {
+    @return map-get(map-get($color-map, $color), $tone);
+}
+
+/*
+
+a {
+    color: color(purple);
+    &:hover {
+        color: color(purple, light);
+    }
+}
+
+*/
+
+$color-facebook: #3b5998;
+$color-twitter: #00aced;
+$color-google: #dd4b39;
+$color-pinterest: #cb2027;

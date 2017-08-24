@@ -1,0 +1,299 @@
+
+// https://codepen.io/boxabrain/pen/sdzcf
+
+.m-nav__list {
+  display: block;
+  text-align: right;
+  font-family: $font-sans;
+  text-transform: uppercase;
+  
+  @include bp(mobile-nav) {
+    position: fixed;
+    text-align: center;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.8);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.m-nav__list ul {
+  
+  @include bp(mobile-nav) {
+    position: relative;
+    top: 10vh;
+    transform: scale(2);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.m-nav__list li { 
+  
+  @include bp(mobile-nav) {
+	display: block; 
+  }
+}
+
+.m-nav__list li a {
+  text-decoration: none;
+  color: $grey60;
+  @include set-type($ms-base, 6);
+//  transition: all 0.3s ease-in-out;
+  
+  &.nav-link {
+    &--articles {
+      &:hover {
+        color: $color-articles;
+      }
+      &.active {
+        color: $color-articles;
+        &:before {
+          content: '✎';
+          margin-right: vr(2);
+        }
+      }
+    }
+    &--photos {
+      &:hover {
+        color: $color-photos;
+      }
+      &.active {
+        color: $color-photos;
+        &:before {
+          content: '⧈';
+          margin-right: vr(2);
+        }
+      }
+    }
+    &--code {
+      &:hover {
+        color: $color-code;
+        text-shadow: 0 0 1px $grey20;
+      }
+      &.active {
+        color: $color-code;
+        text-shadow: 0 0 1px $grey20;
+        &:before {
+          content: '⚒';
+          margin-right: vr(2);
+        }
+      }
+    }
+    &--sport {
+      &:hover {
+        color: $color-sport;
+      }
+      &.active {
+        color: $color-sport;
+        &:before {
+          content: '⦿';
+          margin-right: vr(2);
+        }
+      }
+    }
+    &--links {
+      &:hover {
+        color: $color-links;
+      }
+      &.active {
+        color: $color-links;
+        &:before {
+          content: '☍';
+          margin-right: vr(2);
+        }
+      }
+    }
+  }
+  
+  @include bp(mobile-nav) {
+    display: block;
+    font-size: 2rem;
+    line-height: calc(80vh/5);
+    color: $white;
+    opacity: 0.8;
+    transition: all 0.2s ease-in-out;
+    
+    &.nav-link {
+      &--articles {
+        background-color: $color-articles;
+        &:hover {
+          color: $white;
+          box-shadow: inset 0px 0px 20px 0px color(color-articles, d75);
+          text-shadow: none;
+        }
+        &.active {
+          color: $white;
+          &:before {
+            content: '';
+            margin-right: 0;
+          }
+        }
+      }
+      &--photos {
+        background-color: $color-photos;
+        &:hover {
+          color: $white;
+          box-shadow: inset 0px 0px 20px 0px color(color-photos, d75);
+          text-shadow: none;
+        }
+        &.active {
+          color: $white;
+          &:before {
+            content: '';
+            margin-right: 0;
+          }
+        }
+      }
+      &--code {
+        background-color: $color-code;
+        &:hover {
+          color: $white;
+          box-shadow: inset 0px 0px 20px 0px color(color-code, d75);
+          text-shadow: none;
+        }
+        &.active {
+          color: $white;
+          &:before {
+            content: '';
+            margin-right: 0;
+          }
+        }
+      }
+      &--sport {
+        background-color: $color-sport;
+        &:hover {
+          color: $white;
+          box-shadow: inset 0px 0px 20px 0px color(color-sport, d75);
+          text-shadow: none;
+        }
+        &.active {
+          color: $white;
+          &:before {
+            content: '';
+            margin-right: 0;
+          }
+        }
+      }
+      &--links {
+        background-color: $color-links;
+        &:hover {
+          color: $white;
+          box-shadow: inset 0px 0px 20px 0px color(color-links, d75);
+          text-shadow: none;
+        }
+        &.active {
+          color: $white;
+          &:before {
+            content: '';
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#toggle-nav-label {
+  display: none;
+  
+  @include bp(mobile-nav) {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    z-index: 500;
+    
+    & span {
+      color: $grey80;
+      font-family: $font-sans;
+      text-transform: uppercase;
+      margin-right: vr(2);
+    }
+  
+  }
+}
+
+#toggle-nav { display: none; }
+
+#toggle-nav:checked ~ .m-nav__list { 
+	opacity: 1;
+	z-index: 400;
+}
+
+#toggle-nav:checked ~ .m-nav__list ul {
+	transform: scale(1);
+}
+
+#toggle-nav:checked ~ #toggle-nav-label { 
+	color: rgba(0,0,0,0.8);
+}
+
+
+
+/* https://codepen.io/designcouch/pen/Atyop */
+
+.m-nav__icon {
+  width: 2rem;
+  height: 1.5rem;
+  display: inline-block;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.m-nav__icon span {
+  display: block;
+  position: absolute;
+  height: calc(1.5rem/5);
+  width: 100%;
+  background: $grey60;
+  border-radius: calc(1.5rem/5);
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.m-nav__icon span:nth-child(1) {
+  top: 0;
+}
+
+.m-nav__icon span:nth-child(2),
+.m-nav__icon span:nth-child(3) {
+  top: calc((1.5rem/5)*2);
+}
+
+.m-nav__icon span:nth-child(4) {
+  top: calc((1.5rem/5)*4);
+}
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(1) {
+  top: calc((1.5rem/5)*2);
+  width: 0%;
+  left: 50%;
+  background: $white;
+}
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(2) {
+  transform: rotate(45deg);
+  background: $white;
+}
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(3) {
+  transform: rotate(-45deg);
+  background: $white;
+}
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(4) {
+  top: calc((1.5rem/5)*2);
+  width: 0%;
+  left: 50%;
+  background: $white;
+}

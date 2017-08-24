@@ -1,0 +1,90 @@
+/* ----------------------------------------------------------------------------
+
+HEADINGS
+
+===============================================================================
+03_atoms/_headings.scss
+-------------------------------------------------------------------------------
+
+Basic styles to h1 - h6
+
+---------------------------------------------------------------------------- */
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: $font-sans;
+  font-weight: 900;
+  color: $grey90;
+}
+
+.h1 {
+  color: $grey90;
+  @include set-type($ms-up3, 3);
+  padding: 0 0 vr(2);
+}
+
+.h1--logo {
+  text-transform: uppercase;
+  color: $grey90;
+  @include set-type($ms-up1, 8);
+  padding: 0;
+  
+  &__dot--home {
+    color: $color-home;
+  }
+  &__dot--articles {
+    color: $color-articles;
+  }
+  &__dot--photos {
+    color: $color-photos;
+  }
+  &__dot--code {
+    color: $color-code;
+  }
+  &__dot--sport {
+    color: $color-sport;
+  }
+  &__dot--links {
+    color: $color-links;
+  }
+}
+
+.h2 {
+  @include set-type($ms-up2);
+  margin-bottom: vr(1);
+  
+  &--index {
+    &--articles, &--photos, &--code, &--sport, &--links {
+      @extend .h2;
+    }
+  }
+}
+  
+  h2 {
+    @include set-type($ms-up2);
+    font-weight: 700;
+    margin-top: vr(4);
+    margin-bottom: vr(2);
+  }
+
+
+.h3 {
+  @include set-type($ms-up1);
+  margin-bottom: vr(2);
+}
+  h3 {
+    @include set-type($ms-up1);
+    font-weight: 700;
+    margin-top: vr(4);
+    margin-bottom: vr(1);
+  }
+
+
+.h4 {
+  @include set-type($ms-base);
+  font-weight: 700;
+}

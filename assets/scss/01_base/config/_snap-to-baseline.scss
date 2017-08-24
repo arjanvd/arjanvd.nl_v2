@@ -1,0 +1,5 @@
+// Based on /base/config/_typesettings.scss
+$base-line-height: ($base-vertical-unit * $base-line-multi) / $base-font-size; // 1.5
+
+// Based on susy: the largest container in use
+$max-width: map-get($susy, container);

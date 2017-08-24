@@ -1,0 +1,46 @@
+
+
+.m-gallery {
+  
+  &--index {
+  margin-bottom: vr(2);
+  }
+  &__item {
+    @include gallery(1 of 2 0);
+
+    @include bp(x-small) {
+      @include gallery(1 of 2 0); 
+    }
+
+    @include bp(small) {
+      @include gallery(1 of 4 0);
+    }
+
+    @include bp(medium) {
+      @include gallery(1 of 2 0); 
+    }
+
+    @include bp(large) {
+      @include gallery(1 of 4 0);
+    }
+
+  }
+}
+
+.m-gallery--alt {
+  margin-bottom: vr(4);
+  
+  &__item-1 {
+    @include gallery(1 of 1 0);
+  }
+  &__item-2 {
+    @include gallery(1 of 2 0);
+  }
+  &__item-3 {
+    @include gallery(1 of 3 0);
+  }
+  &__item-4 {
+    @include gallery(1 of 4 0);
+  }
+    
+}

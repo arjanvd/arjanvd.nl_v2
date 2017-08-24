@@ -1,0 +1,24 @@
+
+.m-article {
+  
+  &-articles__number {
+    @include set-type($ms-down1, 3);
+    color: $grey40;
+  }
+  &-articles__item {
+    @include set-type($ms-base, 4);
+    color: $grey70;
+    margin-bottom: vr(1);
+  }
+  
+  &-links {
+    margin-bottom: vr(4);
+    &__header {
+      margin-bottom: vr(1);
+      color: $grey60;
+    }
+    &__body {
+      
+    }
+  }
+}

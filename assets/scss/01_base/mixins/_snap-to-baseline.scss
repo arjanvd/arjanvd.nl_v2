@@ -1,0 +1,17 @@
+// Based on /base/config/_typesettings.scss
+//$base-line-height: ($base-vertical-unit * $base-line-multi) / $base-font-size; // 1.5
+
+// Based on susy: the largest container in use
+$max-width: map-get($susy, container);
+
+// The actual mixin
+
+
+@mixin snap-to-baseline($aspect-ratio, $base-line-height){
+  $width-per-base-line: $base-line-height * $aspect-ratio;
+  @for $i from 1 to round($max-width / $width-per-base-line) {
+    &[min-width~="#{round($width-per-base-line * $i )}"] {
+      height: round($base-line-height * $i );    
+    }
+  } 
+}

@@ -1,0 +1,43 @@
+
+figure {
+  // margin-left and margin-right are defined in 02_layout/_block.scss in .l-block--content figure 
+  margin-bottom: vr(4);
+  
+  &.figure--right {
+    width: 50%;
+  }
+}
+
+figcaption {
+  font-family: $font-sans;
+  @include set-type ($ms-down1, 3);
+  color: $grey70;
+  margin-top: vr(1);
+  padding-left: vr(3);
+  padding-right: vr(3);
+  
+  @include bp(x-small) {
+    padding-right: vr(6);
+  }
+  
+  @include bp(small) { 
+    padding-left: vr(8);
+    padding-right: vr(12);
+  }
+  
+  @include bp(medium) {
+    padding-left: 0;
+    padding-right: vr(16);
+  }
+  
+  @include bp(large) {
+    padding-right: vr(24);
+  }  
+  
+  @include bp(x-large) {
+    padding-right: vr(40);
+  }
+}
+
+
+  

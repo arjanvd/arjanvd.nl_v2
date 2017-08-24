@@ -1,0 +1,85 @@
+/* ----------------------------------------------------------------------------
+
+LISTS
+
+===============================================================================
+03_atoms/_lists.scss
+-------------------------------------------------------------------------------
+
+Basic styles to list elements
+
+---------------------------------------------------------------------------- */
+
+
+/* @ all lists @ --------------------------------------------------------------
+---------------------------------------------------------------------------- */
+
+ol,
+ul,
+dl {
+  margin-bottom: vr(4);
+}
+
+ul ul,
+ol ol,
+dl dl {
+  margin-left: vr(4);
+  margin-bottom: 0;
+  
+  &:last-child {
+    margin-bottom: vr(4);
+  }
+}
+
+
+/* @ unordered lists @ --------------------------------------------------------
+---------------------------------------------------------------------------- */
+
+ul {
+  list-style: disc;
+  
+  & ul {
+    list-style: circle;
+  }
+  
+  &.ul--reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  &.ul--index {
+    @extend ul.ul--reset;
+    margin-bottom: vr(2);
+    & li {
+      margin-bottom: vr(1);
+    }
+  }
+  &.ul--web {
+    @extend ul.ul--reset;
+    & li {
+      margin-bottom: vr(1);
+    }
+  }
+}
+
+/* @ ordered lists @ ---------------------------------------------------------
+---------------------------------------------------------------------------- */
+
+ol {
+  list-style: decimal;
+  
+  &.ol--reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Ordered reversed list on article list pages
+.ol--articles {
+  list-style: none;
+  
+  @include bp(small) {
+    list-style: decimal;
+  }
+}
