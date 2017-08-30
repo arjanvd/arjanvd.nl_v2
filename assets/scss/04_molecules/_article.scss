@@ -2,11 +2,11 @@
 .m-article {
   
   &-articles__number {
-    @include set-type($ms-down1, 3);
+    @include vr-type($ms-down1, 3);
     color: $grey40;
   }
   &-articles__item {
-    @include set-type($ms-base, 4);
+    @include vr-type($ms-base, 4);
     color: $grey70;
     margin-bottom: vr(1);
   }

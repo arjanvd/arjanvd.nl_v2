@@ -19,7 +19,7 @@ Styles of content
   
   &--footer {
     color: $grey90;
-    @include set-type($ms-down1, 3);
+    @include vr-type($ms-down1, 3);
   }
 }
 

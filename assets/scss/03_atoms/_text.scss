@@ -23,7 +23,7 @@ p {
   }
   
   &.year {
-    @include set-type($ms-up2);
+    @include vr-type($ms-up2);
     color: $grey90;
     font-weight: 700;
     margin-bottom: 0;
@@ -53,7 +53,7 @@ em {
 
 small,
 .small {
-  @include set-type($ms-down1, 3);
+  @include vr-type($ms-down1, 3);
 }
 
 time,
@@ -79,13 +79,13 @@ abbr {
 .article {
   &-link {
     font-weight: 700;
-    @include set-type($ms-base, 3);
+    @include vr-type($ms-base, 3);
   }
   &-type {
     font-family: $font-sans;
     font-weight: 900;
     color: $grey90;
-    @include set-type($ms-down2, 3);
+    @include vr-type($ms-down2, 3);
     text-transform: uppercase;
     border: 1px solid $grey40;
     padding: 2px;
@@ -93,7 +93,7 @@ abbr {
   }
   &-meta {
     font-family: $font-sans;
-    @include set-type($ms-down1, 3);
+    @include vr-type($ms-down1, 3);
     color: $grey80;
     text-transform: uppercase;
     letter-spacing: .15em;

@@ -1,6 +1,6 @@
 /* --------------------------------------------------------
 
-MAIN STYLESHEET for arjanvd.me
+MAIN STYLESHEET for arjanvd.nl
 
 -----------------------------------------------------------
 
@@ -22,15 +22,16 @@ TABLE OF CONTENTS
  
 // Configs
 
-@import "susy";
+// @import "susy";
 
 // Vars
 
 @import "01_base/vars/breakpoints";
 @import "01_base/vars/colours";
 @import "01_base/vars/fonts";
-@import "01_base/vars/susy-settings";
-@import "01_base/vars/typesettings";
+@import "01_base/vars/vr-ms";
+// @import "01_base/vars/susy-settings";
+// @import "01_base/vars/typesettings";
 
 // Mixins
 
@@ -51,7 +52,7 @@ TABLE OF CONTENTS
  
 
 /*  -------------------------------------------------------
-    @layout
+    @02_layout
 -------------------------------------------------------- */
 
 @import "02_layout/02_layout";
@@ -59,7 +60,7 @@ TABLE OF CONTENTS
 
 
 /*  -------------------------------------------------------
-    @atoms
+    @03_atoms
 -------------------------------------------------------- */
 
 @import "03_atoms/03_atoms";
@@ -67,18 +68,18 @@ TABLE OF CONTENTS
   
   
 /*  -------------------------------------------------------
-    @molecules
+    @04_molecules
 -------------------------------------------------------- */
 
-@import "04_molecules/molecules";
+@import "04_molecules/04_molecules";
 
 
 
 /*  -------------------------------------------------------
-    @organisms
+    @05_organisms
 -------------------------------------------------------- */
 
-@import "05_organisms/organisms";
+@import "05_organisms/05_organisms";
 
 
 

@@ -69,7 +69,7 @@ a {
 .link-navigation a, .link-more {
   display: block;
   color: $grey60;
-  @include set-type($ms-down1);
+  @include vr-type($ms-down1);
   font-family: $font-sans;
   text-transform: uppercase;
   letter-spacing: .25em;

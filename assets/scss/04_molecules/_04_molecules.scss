@@ -3,7 +3,7 @@
 MOLECULES
 
 ===============================================================================
-04_molecules/_molecules.scss
+04_molecules/_04_molecules.scss
 -------------------------------------------------------------------------------
 
 From: http://atomicdesign.bradfrost.com/chapter-2/
@@ -18,10 +18,10 @@ site.scss
 
 ---------------------------------------------------------------------------- */
 
-@import "logo";
+//@import "logo";
 @import "nav";
 //@import "figure";
-@import "gallery";
+//@import "gallery";
 @import "article";
 @import "embeds";
 @import "navigation";
