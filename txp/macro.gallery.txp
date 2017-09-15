@@ -1,0 +1,12 @@
+<div class="gallery--{number}-items">
+<txp:images category="{img_cat}">
+
+  <div class="gallery-art__item">
+    <a href="<txp:image_url />"><txp:smd_thumbnail type="square" /></a>
+  </div>
+
+</txp:images>
+</div>
+
+
+<avd_gallery img_cat="{img_cat}" number="{number}" />

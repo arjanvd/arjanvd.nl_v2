@@ -1,0 +1,10 @@
+<header>
+  <h1 class="logo"><a href="<txp:site_url />" class="logo-link">arjanvd<span class="logo__dot">.</span>nl</a></h1>   
+  <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <ul>
+      <li><a href="<txp:section name="blog" url="1" />" itemprop="url" <txp:if_section name='<txp:section title="1" />'>class="active"</txp:if_section>"><txp:section name="blog" title="1" /></a></li>
+      <li><a href="<txp:section name="fotos" url="1" />" itemprop="url" <txp:if_section name='<txp:section title="1" />'>class="active"</txp:if_section>"><txp:section name="fotos" title="1" /></a></li>
+      <li><a href="<txp:section name="over mij" url="1" />" itemprop="url" <txp:if_section name='<txp:section title="1" />'>class="active"</txp:if_section>"><txp:section name="over-mij" title="1" /></a></li>
+    </ul>
+  </nav>
+</header>

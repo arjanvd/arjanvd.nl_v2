@@ -1,0 +1,6 @@
+<div class="embed-container--strava">
+  <iframe frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/{strava_id}'></iframe>
+</div>
+
+
+<txp:strava id="{strava_id}" />

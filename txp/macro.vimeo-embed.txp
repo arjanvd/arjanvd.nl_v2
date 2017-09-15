@@ -1,0 +1,6 @@
+<div class="embed-container">
+  <iframe src="https://player.vimeo.com/video/{vimeo_id}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+
+
+<txp:vimeo id="{vimeo_id}" />

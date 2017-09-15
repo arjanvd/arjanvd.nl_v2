@@ -28,6 +28,7 @@
   &--strava {
     @extend .embed-container;
     padding-bottom: 68.644068%;
+    margin-bottom: 0;
     
     & iframe {
       position: absolute;

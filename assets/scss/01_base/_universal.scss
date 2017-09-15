@@ -22,9 +22,9 @@ Universal styles for box-sizing and fonts
 // From: http://zellwk.com/blog/viewport-based-typography/
 //
 // Setting viewport based typography, starting at 16px until
-// bp(medium) (=768px) and then it grows 1px every 112px 
-// (bp(xx-large) - bp(medium) = 1440 - 768 = 672) / 
-// (max-fontsize - font-size = 22 - 16 = 6) = 112px
+// bp(x-small) (=480px) and then it grows 1px every 160px 
+// (bp(xx-large) - bp(x-small) = 1440 - 480 = 960) / 
+// (max-fontsize - font-size = 22 - 16 = 6) = 160px
 
 html {
   // Setting the basic font-size
@@ -32,14 +32,13 @@ html {
   // Setting the basic font-family
   font-family: $font-serif;
   @include bp(x-small) {
-    // Enlarge font-size at the first breakpoint
-    font-size: 100%;
-  }
-  // Scales by 1px for every 112px from 768px (16px) onwards till
+  // Enlarge font-size at the first breakpoint
+  // Scales by 1px for every 160px from 768px (16px) onwards till
   // 1440px (22px)
-  @include bp(medium) {
-    font-size: calc(100% + 6 * (100vw - 768px) / 672)
+    
+    font-size: calc(100% + 6 * (100vw - 480px) / 960);
   } 
+  
 }
 
 // From: https://github.com/crushlovely/skyline

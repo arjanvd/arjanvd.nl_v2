@@ -22,21 +22,27 @@ p {
     margin-bottom: 0;
   }
   
-  &.year {
-    @include vr-type($ms-up2);
-    color: $grey90;
-    font-weight: 700;
-    margin-bottom: 0;
-    margin-top: vr(4);
-    
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
-  
 }
 
+.section__intro p { @include vr-type($ms-up1, 5); }
 
+.copyright { 
+  @include vr-type($ms-down1, 3); 
+  margin-bottom: vr(4); 
+  color: $grey80;
+}
+
+.year {
+  @include vr-type($ms-up2);
+  color: $grey90;
+  font-weight: 700;
+  margin-top: vr(4);
+  margin-bottom: vr(2);
+  
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
 
 /* @ inline elements @ --------------------------------------------------------
 ---------------------------------------------------------------------------- */
@@ -76,61 +82,15 @@ abbr {
 /* @ special elements @ -------------------------------------------------------
 ---------------------------------------------------------------------------- */
 
-.article {
-  &-link {
-    font-weight: 700;
-    @include vr-type($ms-base, 3);
-  }
-  &-type {
-    font-family: $font-sans;
-    font-weight: 900;
-    color: $grey90;
-    @include vr-type($ms-down2, 3);
-    text-transform: uppercase;
-    border: 1px solid $grey40;
-    padding: 2px;
-    vertical-align: middle;
-  }
-  &-meta {
-    font-family: $font-sans;
-    @include vr-type($ms-down1, 3);
-    color: $grey80;
-    text-transform: uppercase;
-    letter-spacing: .15em;
-    &--header {
-      @extend .article-meta;
-      margin-bottom: vr(4);
-    }
-  }
-  &-body p:first-child {
+.art-meta {
+  font-family: $font-sans;
+  @include vr-type($ms-down1, 4);
+  color: $grey80;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+  
+/*  .article-body p:first-child {
     font-style: italic;
-  }
-}
-
-.dot {
-  
-  &--home {
-    color: $color-home;
-  }
-  
-  &--articles {
-    color: $color-articles;
-  }
-
-  &--photos {
-    color: $color-photos;
-  }
-
-  &--code {
-    color: $color-code;
-  }
-
-  &--sport {
-    color: $color-sport;
-  }
-  
-  &--links {
-    color: $color-links;
-  }
-}
-
+  } */

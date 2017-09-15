@@ -18,10 +18,11 @@ site.scss
 
 ---------------------------------------------------------------------------- */
 
-//@import "logo";
+@import "logo";
 @import "nav";
-//@import "figure";
-//@import "gallery";
+@import "figure";
+@import "gallery";
 @import "article";
 @import "embeds";
 @import "navigation";
+//@import "modal";

@@ -12,6 +12,7 @@ Styles of wrappers - only meant for positioning
 
 .l-wrapper {
   margin: 0 auto;
-  max-width: 680px;
-  padding: 0 4%;
+  max-width: 32em;
+  padding: 0 $marginWrapper;
 }
+

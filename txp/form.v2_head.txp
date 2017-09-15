@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+
+  <txp:if_section name="">
+      <title><txp:site_name /></title>
+  <txp:else />
+      <txp:if_category>
+          <title><txp:category /> &ndash; <txp:site_name /></title>
+      </txp:if_category>
+      <txp:if_individual_article>
+          <title><txp:title /> &ndash; <txp:site_name /></title>
+      <txp:else />
+          <title><txp:section /> &ndash; <txp:site_name /></title>
+      </txp:if_individual_article>
+  </txp:if_section>	
+
+  <txp:rah_metas author="Arjan van Drielen" copyright="&copy; 2016 - heden Arjan van Drielen, tenzij anders aangegeven" description="Ik ben vader van Hugo en Mats, man van Martine, Rotterdammer(t), wielrenner, rijksambtenaar, D66'er. Ik probeer alles en kan best veel. Op deze plek schrijf ik met onregelmatige tussenpozen over van alles en nog wat. En ik post nog wel eens een foto. In de beperking toont zich de meester? Welnee." description_from="excerpt,body" />
+
+  <meta name="generator" content="Textpattern CMS">
+  
+  <txp:if_search>
+    <meta name="robots" content="none">
+  <txp:else />
+    <txp:if_category>
+      <meta name="robots" content="noindex, follow">
+    <txp:else />
+      <txp:if_author>
+        <meta name="robots" content="noindex, follow">
+      <txp:else />
+        <meta name="robots" content="index, follow">
+      </txp:if_author>
+    </txp:if_category>
+    <txp:if_section name="">
+      <link rel="canonical" href="<txp:site_url />">
+    <txp:else />
+      <link rel="canonical" href="<txp:section url="1" />">
+    </txp:if_section>
+  </txp:if_search>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- content feeds -->
+  <txp:feed_link flavor="atom" format="link" label="Atom" />
+  <txp:feed_link flavor="rss" format="link" label="RSS" />
+  <txp:rsd />
+
+<!-- specify canonical, more info: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html -->
+  <txp:if_section name="default">
+      <link rel="canonical" href="<txp:site_url />">
+  <txp:else />
+      <txp:if_individual_article>
+          <link rel="canonical" href="<txp:permlink />">
+      <txp:else />
+          <link rel="canonical" href="<txp:section url='1' />">
+      </txp:if_individual_article>
+  </txp:if_section>
+
+<!-- Meta tags for social media, more info: https://css-tricks.com/essential-meta-tags-social-media/ 
+
+  <txp:if_individual_article>
+    <!--  Essential 
+    <meta property="og:title" content="<txp:title />">
+    <meta property="og:description" content="<txp:if_excerpt><txp:excerpt /><txp:else /></txp:if_excerpt>">
+    <meta property="og:image" content="<txp:if_article_image><txp:article_image /><txp:else /></txp:if_article_image>">
+    <meta property="og:url" content="<txp:permlink />">
+    <meta name="twitter:card" content="summary_large_image">
+    <!--  Non-Essential, But Recommended 
+    <meta name="og:site_name" content="<txp:site_name />">
+    <!--<meta name="twitter:image:alt" content="Alt text for image"> 
+  </txp:if_individual_article> -->
+
+<!-- css -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,400i,700|PT+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="<txp:site_url />assets/css/site.css">
+
+</head>

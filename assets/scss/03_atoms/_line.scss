@@ -1,0 +1,17 @@
+.line {
+  height: 0;
+  width: 1px;
+  border-bottom: 1px solid $grey20;
+  animation: increase 3s forwards .5s; 
+  
+  &--alt {
+    @extend .line;
+    animation: increase 3s forwards 4s reverse;
+  }
+}
+
+@keyframes increase {
+    100% {
+        width: 100%;
+    }
+}

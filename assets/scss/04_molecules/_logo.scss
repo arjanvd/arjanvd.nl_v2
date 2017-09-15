@@ -1,3 +1,11 @@
-.m-logo {
-  margin-right: auto;
+.logo {
+  text-transform: uppercase;
+  text-align: left;
+  @include vr-type($ms-up2, 5);
+  margin-bottom: vr(1);
+  
+  &__dot {
+    color: $blue;
+  }
+
 }

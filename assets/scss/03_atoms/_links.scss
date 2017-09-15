@@ -23,7 +23,10 @@
 ------------------------------------------------------ */
 
 a {
+  color: $red;
   text-decoration: none;
+  transition: all .3s ease-in-out;
+  
   &:visited {
     opacity: .5;
   }
@@ -37,73 +40,73 @@ a {
   &:active {
     opacity: .9;
   }
-  
-  &.link--logo {
-    color: $grey90;
-    &:visited {
-      opacity: 1;
-    }
-    &:hover {
-      color: $black;
-      text-decoration: none;
-    }
-    &:focus {
-      padding-top: 0;
-      opacity: 1;
-    }
-    &:active {
-      opacity: 1;
-    }
+
+}
+
+.logo-link {
+  color: $grey90;
+  &:visited {
+    opacity: 1;
   }
-
-}
-
-.ul--index a {
-  color: $black;
-}
-
-.ul--web a {
-  color: $color-home;
-}
-
-.link-navigation a, .link-more {
-  display: block;
-  color: $grey60;
-  @include vr-type($ms-down1);
-  font-family: $font-sans;
-  text-transform: uppercase;
-  letter-spacing: .25em;
   &:hover {
     color: $grey80;
     text-decoration: none;
   }
+  &:focus {
+    padding-top: 0;
+    opacity: 1;
+  }
+  &:active {
+    opacity: 1;
+  }
 }
 
-.h2--index--articles a,
-.o-content--articles a {
-  color: $color-articles;
+.title-link {
+  color: $blue;
+
+  &:hover { text-decoration: none; color: color(blue, l75); }
+  &:focus, &:visited { color: color(blue, l50); }
 }
 
-.h2--index--photos a,
-.o-content--photos a {
-  color: $color-photos;
+.category-link {
+  font-family: $font-sans;
+  color: $grey80;
+  text-transform: uppercase;
+  padding: .25em;
+  background: color(green, l25);
+  border-radius: .25em;
+
+  &:hover { 
+    text-decoration: none; 
+    color: $black; 
+    background: color(green, l50); 
+  }
+  &:focus, &:visited { background: color(green, l25); }
 }
 
-.h2--index--code a,
-.o-content--code a {
-  color: $color-code;
-  text-shadow: 0 0 1px $grey20;
+.navigation a {
+  display: inline-block;
+  color: $grey60;
+  @include vr-type($ms-down1);
+  font-family: $font-sans;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  
+  &:hover { color: $grey50; text-decoration: none; }
+  &:visited, &:active { color: $grey40; }
+  
 }
 
-.h2--index--sport a,
-.o-content--sport a {
-  color: $color-sport;
+.web-link {
+  display: inline-block;
+  color: $grey80;
+
+  &:hover { color: $grey60; text-decoration: none; }
+  &:visited, &:active { color: $grey50; }
+
 }
 
-.h2--index--links a,
-.o-content--links a {
-  color: $color-links;
-}
+
 
 
 /* @webkit-tap-highlight

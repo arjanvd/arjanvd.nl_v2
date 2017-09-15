@@ -1,0 +1,89 @@
+<txp:if_section name=""> <!-- op de homepage -->
+  <article itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <h1 itemprop="headline" class="h3--articlelist"><a href="<txp:permlink />" itemprop="url mainEntityOfPage" class="title-link"><txp:title /></a></h1>
+    <div class="art-meta art-meta--index">
+      <time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
+        <txp:rah_replace from="January,February,March,April,May,June,July,August,September,October,November,December" to="januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december">
+          <txp:posted format="%e %B %Y" />
+        </txp:rah_replace>
+      </time>  &middot; 
+      <txp:if_article_category>
+        <span itemprop="keywords">
+          <txp:if_article_category number="1">
+            <txp:if_article_category number="2">
+              <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a> <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
+            <txp:else />
+              <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a>
+            </txp:if_article_category>
+          <txp:else />
+            <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
+          </txp:if_article_category>
+        </span>
+      </txp:if_article_category>
+    </div>
+    <div itemprop="description" class="article-body">
+      <txp:excerpt />
+    </div>
+  </article>
+</txp:if_section>
+
+<txp:if_section name="blog">
+  <txp:if_article_list> <!-- op de blog pagina -->
+    <ol class="ol-articles" reversed>
+      <txp:if_different><p class="year"><txp:posted format="%Y" /></p></txp:if_different>
+      <li class="ol-articles__number">
+        <div class="ol-articles__listitem">
+          <h1 itemprop="headline" class="h4"><a href="<txp:permlink />" itemprop="url mainEntityOfPage" class="title-link"><txp:title /></a></h1> &middot; 
+          <txp:if_article_category>
+          <span itemprop="keywords">
+            <txp:if_article_category number="1">
+              <txp:if_article_category number="2">
+                <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a> <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
+              <txp:else />
+                <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a>
+              </txp:if_article_category>
+            <txp:else />
+              <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
+            </txp:if_article_category>
+          </span>
+        </txp:if_article_category>
+        </div>
+      </li>
+    </ol>
+    
+  <txp:else /> <!-- op de blog artikel pagina -->
+  
+    <article itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+      <h1 itemprop="headline" class="h1"><txp:title /></h1>
+      <div class="art-meta">
+        <time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
+          <txp:rah_replace from="January,February,March,April,May,June,July,August,September,October,November,December" to="januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december">
+            <txp:posted format="%e %B %Y" />
+          </txp:rah_replace>
+        </time>  &middot; 
+        <txp:if_article_category>
+          <span itemprop="keywords">
+            <txp:if_article_category number="1">
+              <txp:if_article_category number="2">
+                <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a> <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
+              <txp:else />
+                <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a>
+              </txp:if_article_category>
+            <txp:else />
+              <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
+            </txp:if_article_category>
+          </span>
+        </txp:if_article_category> &middot; <span itemprop="wordCount"><txp:smd_article_stats item="body" /> woorden</span>
+      </div>
+      <div itemprop="articleBody" class="article-body">
+        <txp:body />
+      </div>
+    </article>
+    
+    <txp:output_form form="v2_navigation-article" />
+
+    <txp:output_form form="v2_disqus" />
+  
+  </txp:if_article_list>
+</txp:if_section>

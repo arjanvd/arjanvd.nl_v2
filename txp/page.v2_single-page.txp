@@ -1,0 +1,21 @@
+<txp:output_form form="v2_head" />
+
+<body itemscope itemtype="https://schema.org/WebPage">
+<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+
+<div class="l-wrapper">
+
+  <txp:output_form form="v2_header" />
+
+    <main>
+
+      <txp:article />
+
+    </main>
+
+  <txp:output_form form="v2_footer" />
+
+</div>
+
+</body>
+</html>

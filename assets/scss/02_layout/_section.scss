@@ -1,0 +1,37 @@
+header {
+  margin-top: vr(2);
+  margin-bottom: vr(6);
+  @include vr-border-bottom(1px, 3);
+  border-color: $grey20;
+  border-style: solid; 
+}
+
+.section__intro {
+  margin-bottom: vr(8);
+  @include vr-border-bottom(1px, 8);
+  border-color: $grey20;
+  border-style: solid;
+}
+
+.section__blog {
+  margin-bottom: vr(10);
+  @include vr-border-bottom(1px, 8);
+  border-color: $grey20;
+  border-style: solid;
+}
+
+.article__index {
+  margin-bottom: vr(6);
+}
+
+
+.section__photos, main {
+  margin-bottom: vr(10);
+}
+
+footer {
+  @include vr-border-top(1px, 8);
+  border-color: $grey20;
+  border-style: solid;
+}
+

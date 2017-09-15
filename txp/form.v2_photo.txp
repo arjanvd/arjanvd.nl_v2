@@ -1,0 +1,47 @@
+<txp:if_section name=""> <!-- op de homepage -->
+
+  <article class="gallery__item">
+    <a href="<txp:permlink />" itemprop="url mainEntityOfPage"><txp:smd_thumbnail type="square" id='<txp:custom_field name="article_image" />' item="alt" /></a>
+  </article>  
+
+</txp:if_section>   
+
+<txp:if_section name="fotos">
+   
+  <txp:if_article_list> <!-- op de foto's pagina -->
+
+    <article class="gallery__item">
+      <a href="<txp:permlink />" itemprop="url mainEntityOfPage"><txp:smd_thumbnail type="square" id='<txp:custom_field name="article_image" />' item="alt" /></a>
+    </article>  
+
+  <txp:else /> <!-- op de foto artikel pagina -->
+
+    <article itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+      <txp:if_article_image>
+        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="article-body">
+          <txp:images>
+            <img itemprop="url" src="<txp:image_url link='0' />" alt="<txp:image_info type='alt' />">
+          </txp:images>
+        </div>
+      </txp:if_article_image>
+      <h1 itemprop="headline" class="h3"><txp:title /></h1>
+      <div class="art-meta">
+        <time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
+          <txp:rah_replace from="January,February,March,April,May,June,July,August,September,October,November,December" to="januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december">
+            <txp:posted format="%e %B %Y" />
+          </txp:rah_replace>
+        </time>
+      </div>
+      <div itemprop="articleBody" class="article-body">
+        <txp:body />
+      </div>
+    </article>
+
+    <txp:output_form form="v2_navigation-article" />
+
+    <txp:output_form form="v2_disqus" />
+
+  </txp:if_article_list>
+  
+</txp:if_section>

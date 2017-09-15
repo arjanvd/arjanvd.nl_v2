@@ -10,45 +10,44 @@ Basic styles to block code elements (<pre>) and inline code elements (<code>)
 
 ---------------------------------------------------------------------------- */
 
-code, 
-pre {
-  font-family: $font-mono;
+code[class*="language-"],
+pre[class*="language-"] { 
+  font-family: $font-mono; 
+  @include vr-type($ms-down1, 4);
+  color: $black;
+  text-shadow: none;
 }
 
-pre {
-  margin-bottom: vr(4);
+pre[class*="language-"] {
   overflow: auto;
-  border-left: vr(1) solid color(color-code, l50);
-  padding-top: vr(3);
-  padding-bottom: vr(3);
-  padding-left: vr(2);
+  background: $grey20;
+  margin-bottom: vr(4);
+  padding: vr(3);
+}
+
+.code-type {
+  font-family: $font-mono;
+  font-weight: 700;
+  color: $grey80;
+  text-shadow: 1px 0 $white;
+  text-transform: uppercase;
+  background: color(yellow, l50);
+  @include vr-type($ms-down1, 5);
+  padding-left: vr(3);
   padding-right: vr(3);
-  
-  @include bp(x-small) {
-    padding-right: vr(6);
-  }
-  
-  @include bp(small) { 
-    padding-left: vr(7);
-  //  padding-right: vr(12);
-  }
-  
-  @include bp(medium) {
-    padding-left: vr(4);
-  //  padding-right: vr(16);
-  }
-  
-  @include bp(large) {
-  //  padding-right: vr(24);
-  }  
-  
-  @include bp(x-large) {
-  //  padding-right: vr(40);
-  }
 }
 
 :not(pre) > code {
-  background-color: color(color-code, l25);
-  @include set-type($ms-down1, 4);
+  font-family: $font-mono;
+  @include vr-type($ms-down1, 4);
+  background-color: color(yellow, l25);
   padding: .25em;
+  border-radius: .25em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: $grey60;
 }

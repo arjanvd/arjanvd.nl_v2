@@ -13,6 +13,33 @@
 
 --------------------------------------------------------- */
 
+.icon {
+  
+  &--nav, &--separator {
+    display: inline-block;
+    color: $orange;
+    width: $ms-down1;
+    height: $ms-down1;
+  }
+  &--nav svg {
+    vertical-align: text-bottom;
+  }
+  &--separator svg {
+    vertical-align: middle;
+  }
+  
+  &--sm {
+    width: vr(3);
+    height: vr(3);
+    margin-right: vr(2);
+  }
+
+}
+
+svg {
+  fill: currentColor;
+}
+
 .hamburger {
   vertical-align: middle;
 }

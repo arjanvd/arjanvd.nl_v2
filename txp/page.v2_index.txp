@@ -1,0 +1,58 @@
+<txp:output_form form="v2_head" />
+
+<txp:if_category>
+  <body itemscope itemtype="https://schema.org/CollectionPage">
+<txp:else />
+  <body itemscope itemtype="https://schema.org/WebPage">
+</txp:if_category>
+
+<div class="l-wrapper">
+
+<txp:output_form form="v2_header" />
+
+<txp:if_category>
+  <main>
+    <h1 itemprop="name" class="h2--section">Posts in categorie '<txp:category title="1" />'</h1>
+    <txp:article form="v2_blog" limit="99" />
+  </main>
+
+<txp:else />
+
+  <section class="section__intro">
+   <txp:article_custom id="xxx">
+     <txp:excerpt />
+   </txp:article_custom>
+  </section>
+  
+  <main>
+  
+    <section class="section__blog" itemscope itemtype="https://schema.org/Blog">
+      <h1 class="h2--section">Blog</h1>
+      
+      <txp:article_custom section="blog" form="v2_blog" limit="6" />
+      
+      <div class="navigation">
+        <a href="<txp:section url="1" />" class="navigation-link">Ga naar de blog <i class="icon--nav"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></i></a>
+      </div>
+    </section>
+    
+    <section class="section__photos" itemscope itemtype="https://schema.org/CreativeWork">
+      <h1 class="h2--section">Foto's</h1>
+      <div class="gallery">
+        <txp:article_custom section="fotos" form="v2_photo" limit="8" />
+      </div>
+      <div class="navigation">
+        <a href="<txp:section url="1" />" class="navigation-link">Ga naar alle foto's <i class="icon--nav"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></i></a>
+      </div>
+    </section>
+      
+  </main>
+
+</txp:if_category>
+
+<txp:output_form form="v2_footer" />
+
+</div>
+
+</body>
+</html>

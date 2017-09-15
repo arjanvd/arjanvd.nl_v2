@@ -22,69 +22,55 @@ h6, .h6 {
 }
 
 .h1 {
-  color: $grey90;
-  @include vr-type($ms-up3, 3);
-  padding: 0 0 vr(2);
-}
-
-.h1--logo {
-  text-transform: uppercase;
-  color: $grey90;
-  @include vr-type($ms-up2);
-  padding: 0;
-  
-  &__dot--home {
-    color: $color-home;
-  }
-  &__dot--articles {
-    color: $color-articles;
-  }
-  &__dot--photos {
-    color: $color-photos;
-  }
-  &__dot--code {
-    color: $color-code;
-  }
-  &__dot--sport {
-    color: $color-sport;
-  }
-  &__dot--links {
-    color: $color-links;
-  }
+  @include vr-type($ms-up3, 6);
+  margin-bottom: vr(2);
 }
 
 .h2 {
   @include vr-type($ms-up2);
   margin-bottom: vr(1);
   
-  &--index {
-    &--articles, &--photos, &--code, &--sport, &--links {
-      @extend .h2;
-    }
+  &--section {
+    @include vr-type($ms-up2);
+    font-family: $font-serif;
+    margin-bottom: vr(4);
   }
 }
   
-  h2 {
-    @include vr-type($ms-up2);
-    font-weight: 700;
-    margin-top: vr(4);
-    margin-bottom: vr(2);
-  }
-
-
 .h3 {
   @include vr-type($ms-up1);
   margin-bottom: vr(2);
-}
-  h3 {
+  
+  &--articlelist {
     @include vr-type($ms-up1);
-    font-weight: 700;
-    margin-top: vr(4);
-    margin-bottom: vr(1);
+    margin-bottom: 0;
   }
-
-
+}
+  
 .h4 {
   @include vr-type($ms-base);
   font-weight: 700;
+}
+
+/* @ inside posts @ */
+
+// h1 is used in post title, so that one can't be used again
+
+.article-body h2, .article-body h3, .article-body h4, .article-body h5, .article-body h6 {
+  font-weight: 700;
+  margin-top: vr(4);
+}
+
+.article-body h2 {
+  @include vr-type($ms-up2);
+  margin-bottom: vr(2);
+}
+
+.article-body h3 {
+  @include vr-type($ms-up1);
+  margin-bottom: vr(1);
+}
+
+.article-body h4, .article-body h5, .article-body h6 {
+  @include vr-type($ms-base);
 }

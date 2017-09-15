@@ -1,0 +1,11 @@
+<div class="code-type">SCSS</div><pre class="language-scss"><code>{txt_code}</code></pre>
+<avd_codeblock_scss code="{txt_code}" />
+
+<div class="code-type">CSS</div><pre class="language-css"><code>{txt_code}</code></pre>
+<avd_codeblock_css code="{txt_code}" />
+
+<div class="code-type">JS</div><pre class="language-js"><code>{txt_code}</code></pre>
+<avd_codeblock_js code="{txt_code}" />
+
+<div class="code-type">HTML</div><pre class="language-html"><code><script type="prism-html-markup">{txt_code}</script></code></pre>
+<avd_codeblock_html code="{txt_code}" />

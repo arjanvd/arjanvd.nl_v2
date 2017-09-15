@@ -1,0 +1,9 @@
+<script src="<txp:site_url />assets/js/prism.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/js/jquery.fluidbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+<script>
+  $(function () {
+      $('.gallery-art__item a').fluidbox();
+  });  
+</script>

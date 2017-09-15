@@ -1,0 +1,7 @@
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/{youtube_id}" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<txp:youtube id="{youtube_id}" />
+

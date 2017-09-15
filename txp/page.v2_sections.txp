@@ -1,0 +1,42 @@
+<txp:output_form form="v2_head" />
+
+<body itemscope itemtype="https://schema.org/WebPage">
+
+<div class="l-wrapper">
+
+<txp:output_form form="v2_header" />
+  
+  <txp:if_section name="blog">
+    <main itemscope itemtype="https://schema.org/Blog">
+    <txp:article form="v2_blog" />
+  </txp:if_section>
+
+  <txp:if_section name="fotos">
+    <txp:if_article_list>
+    <main itemscope itemtype="https://schema.org/CreativeWork">
+    <div class="gallery">
+      <txp:article form="v2_photo" limit="12" />
+    </div>
+    <txp:output_form form="v2_navigation-page" />
+    <txp:else />
+    <main itemscope itemtype="https://schema.org/CreativeWork">
+    <txp:article form="v2_photo"/>
+    </txp:if_article_list>
+  </txp:if_section>   
+
+  <txp:if_section name="over-mij">
+    <main itemscope itemtype="https://schema.org/AboutPage">
+    <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+      <txp:article />
+  </txp:if_section>
+  
+  </main>
+
+<txp:output_form form="v2_footer" />
+
+</div>
+
+<txp:output_form form="v2_scripts" />
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<txp:output_form form="v1_head" />
+
+<body>
+
+<div class="l-container">
+
+<txp:output_form form="v1_header" />
+
+<txp:if_section name="fotos">
+  <div class="l-wrapper--content--alt">
+<txp:else />
+  <div class="l-wrapper--content">
+</txp:if_section>
+
+<txp:if_section name="artikelen">
+  <txp:if_article_list>
+    <section class="l-block--content o-content--articles">
+      <ol class="ol--articles" reversed>
+        <txp:article form="v1_articlelist" />
+      </ol>
+    </section>
+  <txp:else />
+    <txp:article form="v1_article" />
+  </txp:if_article_list> 
+</txp:if_section> 
+
+<txp:if_section name="code">
+  <txp:if_article_list>
+    <section class="l-block--content o-content--code">
+      <ol class="ol--articles" reversed>
+        <txp:article form="v1_articlelist" />
+      </ol>
+    </section>
+  <txp:else />
+    <txp:article form="v1_article" />
+  </txp:if_article_list> 
+</txp:if_section> 
+
+<txp:if_section name="sport">
+  <txp:if_article_list>
+    <section class="l-block--content o-content--sport">
+      <ol class="ol--articles" reversed>
+        <txp:article form="v1_articlelist" />
+      </ol>
+    </section>
+  <txp:else />
+    <txp:article form="v1_article" />
+  </txp:if_article_list> 
+</txp:if_section> 
+  
+<txp:if_section name="fotos">
+  <txp:if_article_list>
+    <div class="o-content--photos">
+      <div class="m-gallery--alt">
+        <txp:article form="v1_photolist" limit="20" />
+      </div>
+      <div class="m-navigation l-block--content">
+        <a href="<txp:older />" class="link-navigation navigation__left">&lt; Vorige</a>
+        <a href="<txp:newer />" class="link-navigation navigation__right">Volgende &gt;</a>
+      </div>
+    </div>    
+  <txp:else />
+    <txp:article form="v1_photo" />
+  </txp:if_article_list> 
+</txp:if_section> 
+
+<txp:if_section name="links">
+  <section class="l-block--content o-content--links">
+    <ul class="ul--reset ul--links">
+      <txp:linklist auto_detect="" form="v1_linkslist" sort="date asc" />
+    </ul>
+  </section>
+</txp:if_section>
+
+    </div> <!-- /.l-wrapper--content(--alt) -->
+</div> <!-- /.l-container -->
+
+<txp:output_form form="v1_footer" />
+
+</body>
+</html>

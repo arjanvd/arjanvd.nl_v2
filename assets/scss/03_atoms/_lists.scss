@@ -67,19 +67,17 @@ ul {
 
 ol {
   list-style: decimal;
-  
-  &.ol--reset {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
 }
 
 // Ordered reversed list on article list pages
-.ol--articles {
-  list-style: none;
+.ol-articles {
   
-  @include bp(small) {
-    list-style: decimal;
+  &__number {
+    @include vr-type($ms-down1, 3);
+    color: $grey60;
   }
+  &__listitem h1 {
+    display: inline;
+  }
+
 }

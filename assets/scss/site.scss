@@ -16,69 +16,13 @@ TABLE OF CONTENTS
 
 
 
-/*  -------------------------------------------------------
-    @01_base
--------------------------------------------------------- */
- 
-// Configs
 
-// @import "susy";
-
-// Vars
-
-@import "01_base/vars/breakpoints";
-@import "01_base/vars/colours";
-@import "01_base/vars/fonts";
-@import "01_base/vars/vr-ms";
-// @import "01_base/vars/susy-settings";
-// @import "01_base/vars/typesettings";
-
-// Mixins
-
-
-
-// Base styles
-
-@import "01_base/reset";
-@import "01_base/universal";
-
-
-
-  // Vendor
-
-@import "01_base/vendor/prism";
-//  @import "01_base/vendor/fancybox-mod";
-//  @import "01_base/vendor/bxslider";
  
 
-/*  -------------------------------------------------------
-    @02_layout
--------------------------------------------------------- */
-
+@import "01_base/01_base";
 @import "02_layout/02_layout";
-
-
-
-/*  -------------------------------------------------------
-    @03_atoms
--------------------------------------------------------- */
-
 @import "03_atoms/03_atoms";
-
-  
-  
-/*  -------------------------------------------------------
-    @04_molecules
--------------------------------------------------------- */
-
 @import "04_molecules/04_molecules";
-
-
-
-/*  -------------------------------------------------------
-    @05_organisms
--------------------------------------------------------- */
-
 @import "05_organisms/05_organisms";
 
 

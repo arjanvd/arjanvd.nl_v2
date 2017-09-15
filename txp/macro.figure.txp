@@ -1,0 +1,33 @@
+<figure>
+  <txp:image id="{img_id}" />
+  <figcaption>{txt_caption}</figcaption>
+</figure>
+
+
+<txp:figure id="{img_id}" caption="{txt_caption}" />
+
+
+
+
+<div class="code-type">SCSS</div><pre class="language-scss"><code>@mixin set-type($size, $lines: $base-line-multi) {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: $size; // [1]
+  @if $lines != $base-line-multi { // [2]
+    line-height: ((ceil($size / $base-line-height) * ($base-line-height / $size)) / $base-line-multi) * $lines;
+  }
+  @else { // [3]
+    line-height: ceil($size / $base-line-height) * ($base-line-height / $size);
+  }
+}</code></pre>
+
+
+
+
