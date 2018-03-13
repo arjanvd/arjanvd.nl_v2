@@ -28,7 +28,7 @@ Universal styles for box-sizing and fonts
 
 html {
   // Setting the basic font-size
-  font-size: 87.5%;
+  font-size: 100%;
   // Setting the basic font-family
   font-family: $font-serif;
   @include bp(x-small) {
