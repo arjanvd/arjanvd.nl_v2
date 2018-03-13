@@ -23,7 +23,10 @@
 ------------------------------------------------------ */
 
 a {
-  color: $red;
+//  color: $red;
+  color: $black;
+//  padding-bottom: 0px;
+  border-bottom: 2px solid $red;
   text-decoration: none;
   transition: all .3s ease-in-out;
   
@@ -31,7 +34,9 @@ a {
     opacity: .5;
   }
   &:hover {
-    text-decoration: underline;
+    color: $red;
+    border-color: $grey60;
+  //  text-decoration: underline;
   }
   &:focus {
     padding-top: 2px;
@@ -45,6 +50,8 @@ a {
 
 .logo-link {
   color: $grey90;
+  border: none;
+  
   &:visited {
     opacity: 1;
   }
@@ -63,7 +70,7 @@ a {
 
 .title-link {
   color: $blue;
-
+  border: none;
   &:hover { text-decoration: none; color: color(blue, l75); }
   &:focus, &:visited { color: color(blue, l50); }
 }
@@ -72,21 +79,26 @@ a {
   font-family: $font-sans;
   color: $grey80;
   text-transform: uppercase;
-  padding: .25em;
-  background: color(green, l25);
-  border-radius: .25em;
+  padding-bottom: 1px; //new
+  border-bottom: 2px solid $green; //new
+//  padding: .25em;
+//  background: color(green, l25);
+//  border-radius: .25em;
 
   &:hover { 
     text-decoration: none; 
     color: $black; 
-    background: color(green, l50); 
+ //   background-color: color(green, l50); 
+    border-color: color(green, d75); //new
+    transition: border .3s ease-in-out; //new
   }
-  &:focus, &:visited { background: color(green, l25); }
+  &:focus, &:visited { border-color: color(green, l50); }
 }
 
 .navigation a {
   display: inline-block;
   color: $grey60;
+  border: none;
   @include vr-type($ms-down1);
   font-family: $font-sans;
   text-transform: uppercase;
@@ -100,6 +112,7 @@ a {
 .web-link {
   display: inline-block;
   color: $grey80;
+  border: none;
 
   &:hover { color: $grey60; text-decoration: none; }
   &:visited, &:active { color: $grey50; }

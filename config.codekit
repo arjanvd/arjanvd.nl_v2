@@ -191,6 +191,22 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/assets\/scss\/01_base\/specials\/_d66.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/01_base\/specials\/_d66.scss",
+		"outputAbbreviatedPath": "\/assets\/scss\/01_base\/css\/_d66.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/assets\/scss\/01_base\/vars\/_breakpoints.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,

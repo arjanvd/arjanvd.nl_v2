@@ -17,9 +17,9 @@ Basic styles to block text elments (i.e. <p>) and inline text elements (such as
 
 p {
   margin-bottom: vr(4);
-  
-  &:last-child {
-    margin-bottom: 0;
+  &:last-child { margin-bottom: 0; }
+  & + ul, & + ol {
+    margin-bottom: -#{vr(4)};
   }
   
 }

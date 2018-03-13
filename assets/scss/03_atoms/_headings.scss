@@ -23,7 +23,12 @@ h6, .h6 {
 
 .h1 {
   @include vr-type($ms-up3, 6);
+  color: $black;
   margin-bottom: vr(2);
+  
+  &--alt {
+    margin-bottom: vr(4);
+  }
 }
 
 .h2 {
@@ -57,18 +62,19 @@ h6, .h6 {
 // h1 is used in post title, so that one can't be used again
 
 .article-body h2, .article-body h3, .article-body h4, .article-body h5, .article-body h6 {
-  font-weight: 700;
-  margin-top: vr(4);
+  font-weight: 900;
 }
 
 .article-body h2 {
-  @include vr-type($ms-up2);
-  margin-bottom: vr(2);
+  @include vr-type($ms-up2, 5);
+  margin-top: vr(8);
+  margin-bottom: vr(4);
 }
 
 .article-body h3 {
   @include vr-type($ms-up1);
-  margin-bottom: vr(1);
+  margin-top: vr(6);
+  margin-bottom: vr(2);
 }
 
 .article-body h4, .article-body h5, .article-body h6 {

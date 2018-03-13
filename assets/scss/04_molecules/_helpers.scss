@@ -2,3 +2,29 @@
   display: none;
 }
 
+/* -- For images and figures -- */
+
+.original-width {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.half-width {
+  width: 100%;
+  @include bp(x-small) { width: 50%; }
+  
+  &--left {
+    @extend .half-width;
+    float: left;
+    margin-right: vr(4);
+  }
+  
+  &--right {
+    @extend .half-width;
+    float: right;
+    margin-left: vr(4);
+  }
+}

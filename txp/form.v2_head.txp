@@ -46,7 +46,7 @@
   <txp:rsd />
 
 <!-- specify canonical, more info: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html -->
-  <txp:if_section name="default">
+  <txp:if_section name="">
       <link rel="canonical" href="<txp:site_url />">
   <txp:else />
       <txp:if_individual_article>

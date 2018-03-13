@@ -8,7 +8,13 @@
   
   <txp:if_section name="blog">
     <main itemscope itemtype="https://schema.org/Blog">
-    <txp:article form="v2_blog" />
+    <txp:if_article_list>
+      <ol class="ol-articles" reversed>
+        <txp:article form="v2_blog" />
+      </ol>
+    <txp:else />
+      <txp:article form="v2_blog" />
+    </txp:if_article_list>
   </txp:if_section>
 
   <txp:if_section name="fotos">

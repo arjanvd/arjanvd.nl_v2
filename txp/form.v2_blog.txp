@@ -29,27 +29,27 @@
 
 <txp:if_section name="blog">
   <txp:if_article_list> <!-- op de blog pagina -->
-    <ol class="ol-articles" reversed>
-      <txp:if_different><p class="year"><txp:posted format="%Y" /></p></txp:if_different>
-      <li class="ol-articles__number">
-        <div class="ol-articles__listitem">
-          <h1 itemprop="headline" class="h4"><a href="<txp:permlink />" itemprop="url mainEntityOfPage" class="title-link"><txp:title /></a></h1> &middot; 
-          <txp:if_article_category>
-          <span itemprop="keywords">
-            <txp:if_article_category number="1">
-              <txp:if_article_category number="2">
-                <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a> <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
-              <txp:else />
-                <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a>
-              </txp:if_article_category>
+    
+    <txp:if_different><p class="year"><txp:posted format="%Y" /></p></txp:if_different>
+    <li class="ol-articles__number">
+      <div class="ol-articles__listitem">
+        <h1 itemprop="headline" class="h4"><a href="<txp:permlink />" itemprop="url mainEntityOfPage" class="title-link"><txp:title /></a></h1> &middot; 
+        <txp:if_article_category>
+        <span itemprop="keywords">
+          <txp:if_article_category number="1">
+            <txp:if_article_category number="2">
+              <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a> <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
             <txp:else />
-              <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
+              <a href="<txp:site_url />category/<txp:category1 />" class="category-link"><txp:category1 title="1" /></a>
             </txp:if_article_category>
-          </span>
-        </txp:if_article_category>
-        </div>
-      </li>
-    </ol>
+          <txp:else />
+            <a href="<txp:site_url />category/<txp:category2 />" class="category-link"><txp:category2 title="1" /></a>
+          </txp:if_article_category>
+        </span>
+      </txp:if_article_category>
+      </div>
+    </li>
+    
     
   <txp:else /> <!-- op de blog artikel pagina -->
   

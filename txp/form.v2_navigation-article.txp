@@ -1,17 +1,16 @@
 <div class="navigation">
-  <div class="navigation__left">
-    <a href="<txp:link_to_prev showalways="1" />" class="navigation-link">
+  <txp:link_to_prev showalways="0">
+    <div class="navigation__left">
       <i class="icon--nav">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </i> Vorige
-    </a>
-  </div>
-  <i class="icon--separator"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="12" cy="20" r="2"/></svg></i>
-  <div class="navigation__right">
-    <a href="<txp:link_to_next showalways="1" />" class="navigation-link"> 
+    </div>
+  </txp:link_to_prev>
+  <txp:link_to_next showalways="0"> 
+    <div class="navigation__right">
       Volgende <i class="icon--nav">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
       </i>
-    </a>
-  </div>
+    </div>
+  </txp:link_to_next>
 </div>

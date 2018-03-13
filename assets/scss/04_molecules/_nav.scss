@@ -19,6 +19,7 @@ nav {
   a {
     text-decoration: none;
     color: $grey60;
+    border: none;
     @include vr-type($ms-base, 6);
     padding-bottom: vr(1);
     transition: all 0.3s ease-in-out;

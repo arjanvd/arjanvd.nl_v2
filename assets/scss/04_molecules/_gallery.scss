@@ -25,12 +25,16 @@
 .gallery {
   
   &--2-items {
-    @extend .gallery--article;
+display: grid;
+  grid-gap: vr(1);
+  margin-bottom: vr(4);
     grid-template-columns: 1fr 1fr;
   }
   
   &--4-items {
-    @extend .gallery--article;
+display: grid;
+  grid-gap: vr(1);
+  margin-bottom: vr(4);
     grid-template-columns: 1fr 1fr;
     
     @include bp(large) {
@@ -39,7 +43,9 @@
   }
   
   &--6-items {
-    @extend .gallery--article;
+display: grid;
+  grid-gap: vr(1);
+  margin-bottom: vr(4);
     grid-template-columns: 1fr 1fr;
     
     @include bp(medium) {

@@ -42,24 +42,6 @@ ul {
     list-style: circle;
   }
   
-  &.ul--reset {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  &.ul--index {
-    @extend ul.ul--reset;
-    margin-bottom: vr(2);
-    & li {
-      margin-bottom: vr(1);
-    }
-  }
-  &.ul--web {
-    @extend ul.ul--reset;
-    & li {
-      margin-bottom: vr(1);
-    }
-  }
 }
 
 /* @ ordered lists @ ---------------------------------------------------------

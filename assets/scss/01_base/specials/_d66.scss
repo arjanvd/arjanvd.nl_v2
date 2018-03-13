@@ -1,0 +1,34 @@
+.d66 {
+
+  a { border-bottom: 2px solid $d66; 
+    &:hover {
+      color: $d66;
+      border-color: $grey60;
+    }
+  }
+  
+  .logo-link { color: $grey90; border: none; 
+  &:hover {
+    color: $grey80;
+    }
+  }
+  
+  .logo__dot { color: $d66; }
+
+  nav a { color: $grey60; border: none;
+    &:hover { color: $grey50; }
+    &.active { 
+      color: $grey70;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 24 24" fill="none" stroke="#00af3f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>') no-repeat 50% 100%; 
+    }
+    
+  }
+  
+  .h1 { color: $d66; }
+
+  
+  .web-link { color: $grey80; border: none; 
+    &:hover { color: $grey60; }
+  }
+  
+}
